@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keitumetse Louw | Mental Health Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5D8AA8; /* Soft blue */
+            --primary-light: #E8F0F7;
+            --secondary: #5dbb83; /* Soft green */
+            --accent: #F4B393; /* Warm peach */
+            --light: #FAFAFA;
+            --dark: #2C3E50;
+            --gray: #7B8A8B;
+            --light-gray: #ECF0F1;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--dark);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(93, 138, 168, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: #93c9ab;
+        }
+
+        .btn-video {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-video:hover {
+            background-color: #f0a078;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 10rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #f0f7fb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* Video Section */
+        .video-demo {
+            background-color: white;
+        }
+
+        .video-container {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            margin-top: 2rem;
+            background-color: var(--dark);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 aspect ratio for vertical shorts */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .video-text {
+            flex: 1;
+        }
+
+        .video-cta {
+            flex: 0 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-gray);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-light);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(93, 138, 168, 0.1);
+        }
+
+        .contact-methods {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, var(--secondary) 0%, #c2e5d0 100%);
+            color: var(--dark);
+        }
+
+        .cta h2 {
+            color: var(--dark);
+        }
+
+        .cta h2:after {
+            background-color: var(--primary);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--dark);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links li {
+            margin: 0 1rem;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content, .about-content, .contact-container, .video-content {
+                flex-direction: column;
+            }
+            
+            .hero-text, .about-text, .video-text {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .video-container {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 1rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding-top: 8rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .video-cta {
+                text-align: center;
+                width: 100%;
+            }
+            
+            .video-container {
+                max-width: 400px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .video-container {
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Keitumetse<span>Louw</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#video">My Approach</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#cta" class="btn">Book a Session</a></li>
+                </ul>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Welcome to a Journey of Healing and Growth</h1>
+                    <p>I'm Keitumetse Louw, a dedicated mental health professional committed to providing compassionate, evidence-based support for individuals seeking emotional wellness and personal growth.</p>
+                    <p>Whether you're navigating life transitions, managing stress, or seeking deeper self-understanding, I'm here to support you on your path to better mental health.</p>
+                    <a href="#video" class="btn btn-video"><i class="fas fa-play-circle"></i> Watch My Introduction</a>
+                    <a href="#contact" class="btn">Get in Touch</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Calming therapy environment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demonstration Section -->
+    <section id="video" class="video-demo">
+        <div class="container">
+            <h2>My Therapeutic Approach</h2>
+            <div class="video-content">
+                <div class="video-text">
+                    <p>In this short video, I introduce myself and share my perspective on mental health and therapy. I believe in creating a safe, collaborative space where healing can naturally occur.</p>
+                    <p>My approach is centered around empathy, respect, and evidence-based techniques tailored to each individual's unique needs and circumstances.</p>
+                    <p>Understanding the therapeutic process can help you feel more comfortable and prepared for our work together. I'm here to support you every step of the way.</p>
+                </div>
+                <div class="video-cta">
+                    <a href="#contact" class="btn">Schedule a Consultation</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p><strong>Video highlights:</strong> Personal introduction • Therapeutic philosophy • What to expect in sessions • How I support clients</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About My Practice</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>With a deep commitment to mental wellness and a person-centered approach, I provide a safe, non-judgmental space where clients can explore their thoughts, feelings, and experiences. My practice is grounded in empathy, respect, and evidence-based therapeutic techniques.</p>
+                    <p>I believe that every individual has the capacity for growth and healing, and my role is to facilitate that process through collaborative, tailored support that honors each person's unique journey and strengths.</p>
+                    <p>My approach integrates various therapeutic modalities to meet each client's specific needs, whether you're dealing with anxiety, depression, relationship challenges, or seeking personal development.</p>
+                    <p>I welcome individuals from all backgrounds and identities, and I'm committed to creating an inclusive, affirming environment where everyone feels seen, heard, and valued.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Professional headshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Reach out for bookings, enquiries, or referrals. I'm here to help you take the first step toward better mental health.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Please don't hesitate to reach out via email for any questions, to schedule a consultation, or to begin your therapeutic journey. I typically respond within 24-48 hours.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email Addresses</h4>
+                                <p><a href="mailto:keitumetselouw@yahoo.com">keitumetselouw@yahoo.com</a></p>
+                                <p><a href="mailto:louw464@gmail.com">louw464@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Response Time</h4>
+                                <p>I aim to respond to all inquiries within 24-48 hours during weekdays.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div>
+                                <h4>Confidentiality</h4>
+                                <p>All communications are treated with the utmost confidentiality and respect.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="">Select a reason for contacting</option>
+                                <option value="booking">Book a Session</option>
+                                <option value="information">Request More Information</option>
+                                <option value="referral">Referral Inquiry</option>
+                                <option value="other">Other Question</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" rows="5" placeholder="Please share what you'd like to discuss..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>Begin Your Journey Toward Better Mental Health</h2>
+            <p>Taking the first step can be challenging, but you don't have to do it alone. Whether you're seeking support for specific challenges or looking to enhance your overall wellbeing, I'm here to help.</p>
+            
+            <div class="cta-buttons">
+                <a href="#contact" class="btn">Book a Session</a>
+                <a href="#video" class="btn btn-video"><i class="fas fa-play-circle"></i> Watch Introduction</a>
+                <a href="#contact" class="btn btn-secondary">Request More Information</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="#" class="footer-logo">Keitumetse<span>Louw</span></a>
+            
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#video">My Approach</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="mailto:keitumetselouw@yahoo.com">Email</a></li>
+            </ul>
+            
+            <p class="copyright">© 2023 Keitumetse Louw. All rights reserved. | Mental Health Professional</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Form submission handler
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For this demo, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been received. I will respond to you at ${email} within 24-48 hours.`);
+            
+            // Reset the form
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // YouTube Shorts adjustment
+        // For YouTube Shorts (vertical video), we need to ensure proper display
+        const adjustVideoSize = () => {
+            const videoContainer = document.querySelector('.video-container');
+            const windowWidth = window.innerWidth;
+            
+            // Adjust max width based on screen size for better vertical video display
+            if (windowWidth < 480) {
+                videoContainer.style.maxWidth = '320px';
+            } else if (windowWidth < 768) {
+                videoContainer.style.maxWidth = '400px';
+            } else if (windowWidth < 992) {
+                videoContainer.style.maxWidth = '500px';
+            } else {
+                videoContainer.style.maxWidth = '600px';
+            }
+        };
+        
+        // Initial adjustment
+        adjustVideoSize();
+        
+        // Adjust on window resize
+        window.addEventListener('resize', adjustVideoSize);
+    </script>
+</body>
+</html>
